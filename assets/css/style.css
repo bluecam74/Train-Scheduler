@@ -1,0 +1,33 @@
+.topBar {
+    background: rgb(204, 161, 43);
+    color: white;
+    margin: 0 80px;
+}
+
+.blue {
+    background: rgb(43, 132, 204);
+    color: white;
+}
+
+.table1 {
+    margin: 20px 80px 10px 80px;
+
+}
+
+.form1 {
+    margin: 20px 80px 10px 80px;
+
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+}
+
+.card1{
+    width: 100%;
+}
+
+.card2 {
+    width: 100%;
+}

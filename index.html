@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Scheduler</title>
+    <script src="./assets/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="jumbotron topBar">
+        <div class="container">
+            <h1 class="display-4">Anytime is Train Time</h1>
+        </div>
+    </div>
+    <div class="row table1">
+        <div class="card card1">
+            <div class="card-header blue">Current Train Schedule</div>
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Trenton Express</th>
+                            <td>Trenton</td>
+                            <td>25</td>
+                            <td>(time)</td>
+                            <td>(minutes)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Oregon Trail</th>
+                            <td>Salem, Oregon</td>
+                            <td>3600</td>
+                            <td>(time)</td>
+                            <td>(minutes)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Midnight Carriage</th>
+                            <td>Philadelphia</td>
+                            <td>15</td>
+                            <td>(time)</td>
+                            <td>(minutes)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sing Sing Caravan</th>
+                            <td>Atlanta</td>
+                            <td>45</td>
+                            <td>(time)</td>
+                            <td>(minutes)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Boston Bus</th>
+                            <td>Boston</td>
+                            <td>75</td>
+                            <td>(time)</td>
+                            <td>(minutes)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row form1">
+        <div class="card card2">
+            <div class="card-header blue">Add Train</div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Train Name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="e.g. Crazy Train">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Destination</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="e.g. Los Angeles">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">First Train Time (HH:mm military time)</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="e.g. 13:15">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Frequency (minutes)</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="e.g. 120">
+                    </div>
+                    <button type="submit" class="btn btn-primary blue">Submit</button>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
