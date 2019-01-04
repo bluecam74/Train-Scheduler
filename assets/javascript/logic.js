@@ -1,75 +1,36 @@
 $(document).ready(function () {
-    // var trainRef = firebase.database().ref("trains/");
-    // trainRef.set(songArray);
-
-    var minutesLeft;
-    var milTime;
-    readFromDatabase();
 
     function readFromDatabase() {
         var database = firebase.database();
-        database.ref().on("child_added", function(snapshot) {
-            console.log(snapshot.val());
-          
-            // Store everything into a variable.
-            var trainName = snapshot.val().name;
-            var destination = snapshot.val().destination;
-            var firstTrain = snapshot.val().time;
-            var freq = snapshot.val().freq;
+        database.ref().on("child_added", function (snapshot) {
+
+            var trainName1 = snapshot.val().name;
+            var destination1 = snapshot.val().destination;
+            var firstTrain1 = snapshot.val().time;
+            var freq1 = snapshot.val().freq;
+
+            var firstTrain1Converted = moment(firstTrain1, "HH:mm").subtract(1, "years");
+
+            var diffTime = moment().diff(moment(firstTrain1Converted), "minutes");
+
+            var tRemainder = diffTime % freq1;
+
+            var tMinutesTillTrain = freq1 - tRemainder;
+
+            var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 
             var newRow = $("<tr>").append(
-                $("<th>").text(trainName),
-                $("<td>").text(destination),
-                //$("<td>").text(firstTrain),
-                $("<td>").text(freq),
-              );
+                $("<th>").text(trainName1),
+                $("<td>").text(destination1),
+                $("<td>").text(freq1),
+                $("<td>").text(moment(nextTrain).format("hh:mm")),
+                $("<td>").text(tMinutesTillTrain),
+            );
 
-              $("#trainTable > tbody").append(newRow);
+            $("#trainTable > tbody").append(newRow);
         });
-          
+
     }
-
-    // var randomDate = "02/23/1999";
-    // var randomFormat = "MM/DD/YYYY";
-    // var convertedDate = moment(randomDate, randomFormat);
-
-    // // Using scripts from moment.js write code below to complete each of the following.
-    // // Console.log to confirm the code changes you made worked.
-
-    // // 1 ...to convert the randomDate into three other date formats
-    // console.log(convertedDate.format("MM/DD/YY"));
-    // console.log(convertedDate.format("MMM Do, YYYY hh:mm:ss"));
-    // console.log(convertedDate.format("X"));
-    // console.log("----------------------------------------");
-
-    // console.log(convertedDate.toNow())
-    // console.log(convertedDate.diff(moment(), "years"), "years");
-    // console.log(convertedDate.diff(moment(), "months"), "months");
-    // console.log(convertedDate.diff(moment(), "days"), "days");
-    // console.log(convertedDate.diff(moment(), "minutes"), "min");
-    // console.log("----------------------------------------");
-
-    // // 3 ...to determine the number of days between the randomDate and 02/14/2001
-    // var newDate = moment("02/14/2001", randomFormat);
-    // console.log(convertedDate.diff(newDate, "days"));
-
-    // // 4 ...to convert the randomDate to unix time (be sure to look up what unix time even is!!!)
-    // console.log(convertedDate.format("X"));
-    // console.log("----------------------------------------");
-
-    // // 5 ...to determine what day of the week and what week of the year this randomDate falls on.
-    // console.log(convertedDate.format("DDD"));
-    // console.log(convertedDate.format("dddd"));
-    // console.log(moment(convertedDate).fromNow());
-
-    console.log(moment().format("hh:mm"));
-
-    var timeOfFirst = "13:15";
-    var convertedTime = moment(timeOfFirst, "HH:mm");
-    console.log(convertedTime.format("HH:mm"));
-
-
-
 
     $('#submit').on("click", function (e) {
 
@@ -78,11 +39,9 @@ $(document).ready(function () {
         var trainName = $('#trainName').val().trim();
         var destination = $('#destination').val();
         var firstTrain = $('#firstTrain').val();
-
         var frequency = $('#frequency').val();
         frequency = Number(frequency);
 
-        //console.log (trainName + destination + firstTrain + frequency);
         $('#errorHeader1').empty();
         $('#errorHeader2').empty();
         var validTime = false;
@@ -95,16 +54,14 @@ $(document).ready(function () {
                 $('#errorHeader1').text("All fields are required.");
             }
             else {
-                console.log("all fields filled out");
                 validateTime();
                 validateFreq();
 
                 if (validTime && validFreq) {
-                    console.log("All fields valid.")
-                    writeToDatabase()
+                    writeToDatabase();
                 }
                 else {
-                    console.log("Form invalid.")
+                    return;
                 }
             }
 
@@ -145,12 +102,5 @@ $(document).ready(function () {
 
     });
 
-
-
-
-
-
-
-
-
+    readFromDatabase();
 });

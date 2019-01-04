@@ -7,27 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="./assets/javascript/logic.js"></script>
 </head>
 
 <body>
-    
-<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDJNcR_UU9qkBRnK3yoC27c0_hZN2pPuxo",
-    authDomain: "train-fe825.firebaseapp.com",
-    databaseURL: "https://train-fe825.firebaseio.com",
-    projectId: "train-fe825",
-    storageBucket: "train-fe825.appspot.com",
-    messagingSenderId: "56020323363"
-  };
-  firebase.initializeApp(config);
-</script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDJNcR_UU9qkBRnK3yoC27c0_hZN2pPuxo",
+            authDomain: "train-fe825.firebaseapp.com",
+            databaseURL: "https://train-fe825.firebaseio.com",
+            projectId: "train-fe825",
+            storageBucket: "train-fe825.appspot.com",
+            messagingSenderId: "56020323363"
+        };
+        firebase.initializeApp(config);
+    </script>
 
     <div class="jumbotron topBar">
         <div class="container">
@@ -46,20 +47,6 @@
                             <th scope="col">Frequency (min)</th>
                             <th scope="col">Next Arrival</th>
                             <th scope="col">Minutes Away</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">Trenton Express</th>
-                            <td>Trenton</td>
-                            <td>25</td>
-                            <td>(time)</td>
-                            <td>(minutes)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Oregon Trail</th>
-                            <td>Salem, Oregon</td>
-                            <td>3600</td>
-                            <td>(time)</td>
-                            <td>(minutes)</td>
                         </tr>
                     </tbody>
                 </table>
