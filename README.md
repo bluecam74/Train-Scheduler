@@ -1,6 +1,6 @@
 # Train-Scheduler
 
-link to deployed site: https://bluecam74.github.io/Train-Scheduler/
+Link to deployed site: https://bluecam74.github.io/Train-Scheduler/
 
 Firebase: used to store data of trains
 
